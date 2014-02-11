@@ -1,0 +1,111 @@
+package gravelMOD;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemFood;
+import net.minecraft.potion.Potion;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+
+@Mod(modid = GravelCore.MODID, version = GravelCore.VERSION)
+public class GravelCore
+{
+	public static final String MODID   = "GravelMOD";
+	public static final String VERSION = "0.0.1じゃり";
+
+	public static Item itemEatGravel;
+	public static Block blockCompressedGravel;
+	public static Item itemEnergyJarystal;
+	public static Block blockDenseMachine;
+	public static Item itemDenseGravel;
+	public static Item itemLapotronJarystal;
+
+	@Mod.EventHandler
+	public void preInit(FMLPreInitializationEvent event)
+	{
+		/*
+		 * 食べられる石炭, 食べたときの回復量はパンと同じ
+		 * ItemFoodの引数は(ItemID, 空腹度の回復量, 腹もちのよさ, オオカミの餌に出来るかどうか)
+		 * 他は今まで通り
+		 * クリエイティブタブの食べ物タブに追加する.
+		 */
+		itemEatGravel = (new ItemFood(5, 0.6F, false))
+				.setUnlocalizedName("itemEatGravel")
+				.setTextureName("gravelmod:eatgravel")
+				.setCreativeTab(CreativeTabs.tabFood);
+		
+		GameRegistry.addRecipe(new ItemStack(this.itemEatGravel), 
+				new Object[]{ "X","Y", 'X',Blocks.gravel,'Y',Items.bowl });
+		
+		
+		
+		blockCompressedGravel = (new GravelBlock(Material.sand))
+				.setBlockName("blockCompressedGravel")
+				.setBlockTextureName("gravelmod:compressed_gravel")
+				.setCreativeTab(CreativeTabs.tabBlock);
+		
+		GameRegistry.addRecipe(new ItemStack(GravelCore.blockCompressedGravel), 
+				new Object[]{ "XXX","XYX","XXX", 'X',Blocks.gravel,'Y',Items.flint });
+		
+		
+		
+		itemEnergyJarystal = (new ItemFood(5, 0.6F, false))
+				.setUnlocalizedName("itemEnergyJarystal")
+				.setTextureName("gravelmod:energy_jarystal")
+				.setCreativeTab(CreativeTabs.tabFood);
+		
+		GameRegistry.addRecipe(new ItemStack(this.itemEnergyJarystal), 
+				new Object[]{ "XXX","XYX","XXX",  'X',this.blockCompressedGravel,'Y',Items.diamond });
+		
+		
+		
+		blockDenseMachine = (new GravelBlock(Material.rock))
+				.setBlockName("blockDenseMachine")
+				.setBlockTextureName("gravelmod:dense_machine")
+				.setCreativeTab(CreativeTabs.tabBlock);
+		
+		GameRegistry.addRecipe(new ItemStack(this.blockDenseMachine), 
+				new Object[]{ "XYX","YZY","XYX",  'X',Blocks.iron_block,'Y',this.blockCompressedGravel,'Z',this.itemEnergyJarystal });
+		
+		
+		
+		itemDenseGravel = (new ItemFood(5, 0.6F, false))
+				.setUnlocalizedName("itemDenseGravel")
+				.setTextureName("gravelmod:dense_gravel")
+				.setCreativeTab(CreativeTabs.tabFood);
+		
+		
+		
+		itemLapotronJarystal = (new ItemFood(5, 0.6F, false))
+				.setUnlocalizedName("itemLapotronJarystal")
+				.setTextureName("gravelmod:lapotron_jarystal")
+				.setCreativeTab(CreativeTabs.tabFood);
+		
+		GameRegistry.addRecipe(new ItemStack(this.itemLapotronJarystal), 
+				new Object[]{ "XXX","XYX","XXX",  'X',this.itemDenseGravel,'Y',this.itemEnergyJarystal });
+		
+		
+
+		GameRegistry.registerItem(itemEatGravel, "EatGravel");
+		GameRegistry.registerItem(itemEnergyJarystal, "EnergyJarystal");
+		GameRegistry.registerItem(itemDenseGravel, "DenseGravel");
+		GameRegistry.registerItem(itemLapotronJarystal, "LapotronJarystal");
+		GameRegistry.registerBlock(blockCompressedGravel, "CompressedGravel");
+		GameRegistry.registerBlock(blockDenseMachine, "DenseMachine");
+		
+		LanguageRegistry.addName(itemEatGravel, "EatGravel");
+		LanguageRegistry.addName(itemEnergyJarystal, "EnergyJarystal");
+		LanguageRegistry.addName(itemDenseGravel, "DenseGravel");
+		LanguageRegistry.addName(itemLapotronJarystal, "LapotronJarystal");
+		LanguageRegistry.addName(blockCompressedGravel, "CompressedGravel");
+		LanguageRegistry.addName(blockDenseMachine, "DenseMachine");
+	}
+}
