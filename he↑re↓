@@ -1,0 +1,81 @@
+---- Minecraft Crash Report ----
+// There are four lights!
+
+Time: 14/02/11 14:37
+Description: Rendering item
+
+java.lang.NullPointerException: Rendering item
+	at net.minecraft.item.ItemStack.getItemDamage(ItemStack.java:266)
+	at net.minecraft.client.renderer.entity.RenderItem.renderItemIntoGUI(RenderItem.java:421)
+	at net.minecraft.client.renderer.entity.RenderItem.renderItemAndEffectIntoGUI(RenderItem.java:565)
+	at net.minecraft.client.gui.inventory.GuiContainer.func_146977_a(GuiContainer.java:305)
+	at net.minecraft.client.gui.inventory.GuiContainer.drawScreen(GuiContainer.java:132)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1209)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1063)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:951)
+	at net.minecraft.client.main.Main.main(Main.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at net.minecraft.item.ItemStack.getItemDamage(ItemStack.java:266)
+	at net.minecraft.client.renderer.entity.RenderItem.renderItemIntoGUI(RenderItem.java:421)
+
+-- Item being rendered --
+Details:
+	Item Type: null
+	Item Aux: ~~ERROR~~ NullPointerException: null
+	Item NBT: null
+	Item Foil: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.client.renderer.entity.RenderItem.renderItemAndEffectIntoGUI(RenderItem.java:565)
+	at net.minecraft.client.gui.inventory.GuiContainer.func_146977_a(GuiContainer.java:305)
+	at net.minecraft.client.gui.inventory.GuiContainer.drawScreen(GuiContainer.java:132)
+
+-- Screen render details --
+Details:
+	Screen name: net.minecraft.client.gui.inventory.GuiCrafting
+	Mouse location: Scaled: (190, 78). Absolute: (381, 323)
+	Screen size: Scaled: (427, 240). Absolute: (854, 480). Scale factor of 2
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityClientPlayerMP['Player905'/292, l='MpServer', x=190.66, y=67.62, z=240.23]]
+	Chunk stats: MultiplayerChunkCache: 225, 225
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (184,64,256), Chunk: (at 8,4,0 in 11,16; contains blocks 176,0,256 to 191,255,271), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 10203 game time, 10203 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+	Forced entities: 90 total; [EntitySheep['Sheep'/137, l='MpServer', x=186.19, y=76.00, z=171.50], EntityBat['Bat'/139, l='MpServer', x=183.63, y=20.67, z=233.97], EntitySheep['Sheep'/138, l='MpServer', x=184.25, y=73.00, z=176.50], EntityBat['Bat'/141, l='MpServer', x=179.35, y=39.56, z=254.38], EntityBat['Bat'/140, l='MpServer', x=188.03, y=24.88, z=232.58], EntityChicken['Chicken'/143, l='MpServer', x=182.16, y=73.00, z=265.56], EntityBat['Bat'/142, l='MpServer', x=184.10, y=40.05, z=258.96], EntitySheep['Sheep'/128, l='MpServer', x=161.94, y=73.00, z=269.03], EntityBat['Bat'/556, l='MpServer', x=133.05, y=39.83, z=214.41], EntitySheep['Sheep'/152, l='MpServer', x=202.34, y=71.00, z=229.56], EntitySheep['Sheep'/150, l='MpServer', x=205.52, y=68.95, z=175.48], EntitySheep['Sheep'/151, l='MpServer', x=190.53, y=72.00, z=192.63], EntitySheep['Sheep'/175, l='MpServer', x=224.31, y=72.00, z=168.19], EntityBat['Bat'/174, l='MpServer', x=227.47, y=31.10, z=170.56], EntitySheep['Sheep'/163, l='MpServer', x=218.34, y=66.00, z=269.50], EntityChicken['Chicken'/162, l='MpServer', x=209.50, y=68.00, z=271.50], EntitySheep['Sheep'/161, l='MpServer', x=222.94, y=69.00, z=247.94], EntitySheep['Sheep'/160, l='MpServer', x=221.56, y=68.00, z=183.34], EntityChicken['Chicken'/166, l='MpServer', x=213.47, y=69.00, z=285.56], EntityChicken['Chicken'/165, l='MpServer', x=208.70, y=74.00, z=277.69], EntitySheep['Sheep'/164, l='MpServer', x=223.50, y=68.00, z=262.34], EntityChicken['Chicken'/186, l='MpServer', x=234.53, y=63.00, z=293.44], EntityChicken['Chicken'/187, l='MpServer', x=231.59, y=63.00, z=294.56], EntityChicken['Chicken'/184, l='MpServer', x=236.47, y=67.00, z=271.34], EntityChicken['Chicken'/185, l='MpServer', x=232.47, y=66.00, z=281.56], EntityClientPlayerMP['Player905'/292, l='MpServer', x=190.66, y=67.62, z=240.23], EntitySheep['Sheep'/188, l='MpServer', x=238.13, y=68.00, z=288.88], EntitySheep['Sheep'/189, l='MpServer', x=232.50, y=67.00, z=319.56], EntityBat['Bat'/178, l='MpServer', x=241.07, y=25.05, z=213.55], EntitySheep['Sheep'/179, l='MpServer', x=238.31, y=65.00, z=197.31], EntitySheep['Sheep'/176, l='MpServer', x=228.47, y=76.00, z=179.59], EntitySheep['Sheep'/177, l='MpServer', x=226.53, y=72.00, z=183.47], EntitySheep['Sheep'/182, l='MpServer', x=233.34, y=71.00, z=271.59], EntitySheep['Sheep'/183, l='MpServer', x=224.41, y=63.00, z=278.78], EntitySheep['Sheep'/180, l='MpServer', x=244.75, y=64.00, z=259.56], EntitySheep['Sheep'/181, l='MpServer', x=228.09, y=69.00, z=240.94], EntitySheep['Sheep'/205, l='MpServer', x=242.09, y=67.00, z=249.06], EntityBat['Bat'/204, l='MpServer', x=237.53, y=38.79, z=200.05], EntitySheep['Sheep'/207, l='MpServer', x=247.19, y=64.00, z=262.31], EntitySheep['Sheep'/206, l='MpServer', x=247.50, y=63.00, z=264.75], EntitySheep['Sheep'/201, l='MpServer', x=242.84, y=65.00, z=196.78], EntitySheep['Sheep'/200, l='MpServer', x=245.66, y=66.00, z=197.53], EntityBat['Bat'/203, l='MpServer', x=240.27, y=26.83, z=203.11], EntitySheep['Sheep'/202, l='MpServer', x=243.13, y=69.00, z=186.81], EntitySheep['Sheep'/77, l='MpServer', x=124.97, y=71.00, z=201.97], EntitySheep['Sheep'/85, l='MpServer', x=136.47, y=70.00, z=206.53], EntitySheep['Sheep'/84, l='MpServer', x=141.53, y=72.00, z=195.47], EntitySheep['Sheep'/222, l='MpServer', x=267.94, y=71.00, z=202.03], EntitySheep['Sheep'/87, l='MpServer', x=138.56, y=75.00, z=192.34], EntitySheep['Sheep'/223, l='MpServer', x=256.13, y=74.00, z=224.25], EntitySheep['Sheep'/86, l='MpServer', x=136.19, y=69.00, z=209.22], EntitySheep['Sheep'/81, l='MpServer', x=136.47, y=70.00, z=164.53], EntitySheep['Sheep'/83, l='MpServer', x=137.53, y=69.00, z=163.47], EntitySheep['Sheep'/82, l='MpServer', x=132.38, y=70.00, z=164.16], EntitySquid['Squid'/212, l='MpServer', x=242.56, y=61.00, z=297.50], EntitySheep['Sheep'/213, l='MpServer', x=251.72, y=63.00, z=306.41], EntitySheep['Sheep'/92, l='MpServer', x=142.88, y=73.00, z=259.34], EntitySheep['Sheep'/208, l='MpServer', x=247.06, y=64.00, z=260.13], EntityChicken['Chicken'/89, l='MpServer', x=143.47, y=68.00, z=215.63], EntitySheep['Sheep'/209, l='MpServer', x=240.53, y=71.00, z=285.34], EntityBat['Bat'/88, l='MpServer', x=133.43, y=47.24, z=213.40], EntitySheep['Sheep'/210, l='MpServer', x=242.94, y=64.00, z=285.09], EntityBat['Bat'/91, l='MpServer', x=128.51, y=44.02, z=224.29], EntitySheep['Sheep'/211, l='MpServer', x=247.31, y=65.00, z=283.13], EntitySheep['Sheep'/90, l='MpServer', x=141.91, y=69.00, z=209.50], EntitySheep['Sheep'/103, l='MpServer', x=150.13, y=68.00, z=164.09], EntitySheep['Sheep'/110, l='MpServer', x=154.14, y=77.00, z=199.45], EntitySheep['Sheep'/230, l='MpServer', x=269.19, y=78.00, z=276.78], EntityChicken['Chicken'/111, l='MpServer', x=149.84, y=77.05, z=201.25], EntityChicken['Chicken'/108, l='MpServer', x=155.47, y=77.00, z=194.47], EntitySheep['Sheep'/228, l='MpServer', x=265.50, y=77.00, z=280.34], EntityChicken['Chicken'/109, l='MpServer', x=151.56, y=75.00, z=206.34], EntitySheep['Sheep'/227, l='MpServer', x=267.16, y=75.00, z=245.53], EntityChicken['Chicken'/106, l='MpServer', x=148.56, y=70.00, z=201.91], EntitySheep['Sheep'/226, l='MpServer', x=260.19, y=74.00, z=241.47], EntityChicken['Chicken'/107, l='MpServer', x=153.16, y=76.56, z=199.58], EntitySheep['Sheep'/104, l='MpServer', x=146.22, y=69.00, z=165.50], EntitySheep['Sheep'/225, l='MpServer', x=261.50, y=74.00, z=236.81], EntitySheep['Sheep'/105, l='MpServer', x=148.91, y=67.00, z=163.47], EntitySheep['Sheep'/224, l='MpServer', x=256.22, y=71.00, z=214.50], EntitySheep['Sheep'/116, l='MpServer', x=144.47, y=73.00, z=264.53], EntitySheep['Sheep'/115, l='MpServer', x=149.50, y=79.00, z=259.34], EntitySheep['Sheep'/114, l='MpServer', x=145.91, y=68.00, z=210.09], EntityChicken['Chicken'/113, l='MpServer', x=159.50, y=68.00, z=210.50], EntityChicken['Chicken'/112, l='MpServer', x=146.19, y=68.00, z=218.28], EntityBat['Bat'/127, l='MpServer', x=175.63, y=45.10, z=247.78], EntitySheep['Sheep'/126, l='MpServer', x=166.44, y=65.00, z=212.75], EntitySheep['Sheep'/125, l='MpServer', x=161.94, y=70.00, z=205.03], EntitySheep['Sheep'/124, l='MpServer', x=163.81, y=70.00, z=205.06], EntitySheep['Sheep'/123, l='MpServer', x=161.47, y=69.00, z=206.53]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:418)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2556)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:973)
+	at net.minecraft.client.main.Main.main(Main.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	
+	
+	
